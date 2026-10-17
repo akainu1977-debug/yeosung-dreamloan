@@ -7,7 +7,7 @@ import { Services } from './components/Services';
 import { Process } from './components/Process';
 import { Principles } from './components/Principles';
 import { Reviews } from './components/Reviews';
-import { CompanyInfo } from './components/CompanyInfo';
+
 import { Footer } from './components/Footer';
 
 /** 현재 화면에 보이는 섹션을 추적해 메뉴에 표시합니다. */
@@ -56,7 +56,7 @@ export default function App() {
         <Process />
         <Reviews />
         <Principles />
-        <CompanyInfo />
+       
       </main>
       <Footer />
     </>
