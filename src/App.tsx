@@ -2,12 +2,11 @@ import { useEffect, useState } from 'react';
 import { navItems } from './content/siteContent';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-
 import { Services } from './components/Services';
 import { Process } from './components/Process';
 import { Principles } from './components/Principles';
 import { Reviews } from './components/Reviews';
-
+import { Banner } from './components/Banner';
 import { Footer } from './components/Footer';
 
 /** 현재 화면에 보이는 섹션을 추적해 메뉴에 표시합니다. */
@@ -51,12 +50,11 @@ export default function App() {
       <Header activeId={active} />
       <main id="main">
         <Hero />
-      
         <Services />
         <Process />
+        <Banner />
         <Reviews />
         <Principles />
-       
       </main>
       <Footer />
     </>
