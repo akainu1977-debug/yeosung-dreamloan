@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { navItems } from './content/siteContent';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { About } from './components/About';
+
 import { Services } from './components/Services';
 import { Process } from './components/Process';
 import { Principles } from './components/Principles';
@@ -51,7 +51,7 @@ export default function App() {
       <Header activeId={active} />
       <main id="main">
         <Hero />
-        <About />
+      
         <Services />
         <Process />
         <Reviews />
