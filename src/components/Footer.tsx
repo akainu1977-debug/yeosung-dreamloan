@@ -1,8 +1,38 @@
-import { company, placeholders } from '../config/company';
-import { generalDisclaimers } from '../config/legal';
+import type { ReactNode } from 'react';
+import { TriangleAlert } from 'lucide-react';
+import { company, placeholders, toTelHref, type CompanyInfo } from '../config/company';
+import { generalDisclaimers, lendingTermPlaceholders, lendingTerms, warningNotices } from '../config/legal';
 import { navItems } from '../content/siteContent';
 import { Logo } from './Logo';
-import { Container, Placeholder } from './ui';
+import { Container, Placeholder, ValueOrPlaceholder } from './ui';
+
+type Field = Exclude<keyof CompanyInfo, 'name'>;
+
+/** 푸터에 표시할 회사·등록 정보 (값이 없으면 자리표시자) */
+const infoFields: { label: string; field: Field }[] = [
+  { label: '대표자', field: 'ceo' },
+  { label: '사업자등록번호', field: 'businessRegistrationNumber' },
+  { label: '대부업 등록번호', field: 'lendingRegistrationNumber' },
+  { label: '대부중개업 등록번호', field: 'brokerageRegistrationNumber' },
+  { label: '등록기관', field: 'registrationAuthority' },
+  { label: '주소', field: 'address' },
+  { label: '개인정보 보호책임자', field: 'privacyOfficer' },
+];
+
+const lendingLabels: Record<keyof typeof lendingTermPlaceholders, string> = {
+  interestRate: '대부이자율',
+  overdueInterestRate: '연체이자율',
+  additionalCosts: '이자 외 추가비용',
+  earlyRepaymentTerms: '조기상환 조건',
+};
+
+function InfoItem({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <li>
+      <span className="text-navy-300">{label}</span> <span className="text-navy-100">{children}</span>
+    </li>
+  );
+}
 
 function PolicyLink({ label, url, placeholder }: { label: string; url: string | null; placeholder: string }) {
   if (!url) {
@@ -21,6 +51,8 @@ function PolicyLink({ label, url, placeholder }: { label: string; url: string | 
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const telHref = toTelHref(company.phone);
+  const activeWarnings = warningNotices.filter((w) => w.enabled);
 
   return (
     <footer className="bg-navy-950 text-navy-100">
@@ -45,7 +77,46 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2 border-t border-white/10 pt-8 text-[15px]">
+        {/* 회사·등록 정보 */}
+        <section aria-label="회사 정보" className="mt-10 border-t border-white/10 pt-8">
+          <p className="text-base font-semibold text-white">{company.name}</p>
+          <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-[15px] leading-relaxed">
+            {infoFields.map((f) => (
+              <InfoItem key={f.field} label={f.label}>
+                <ValueOrPlaceholder value={company[f.field]} placeholder={placeholders[f.field]} tone="dark" />
+              </InfoItem>
+            ))}
+            <InfoItem label="대표전화">
+              {telHref ? (
+                <a href={telHref} className="font-semibold text-white hover:underline">
+                  {company.phone}
+                </a>
+              ) : (
+                <Placeholder label={placeholders.phone} tone="dark" />
+              )}
+            </InfoItem>
+            {lendingTerms.enabled &&
+              (Object.keys(lendingLabels) as (keyof typeof lendingLabels)[]).map((key) => (
+                <InfoItem key={key} label={lendingLabels[key]}>
+                  <ValueOrPlaceholder value={lendingTerms[key]} placeholder={lendingTermPlaceholders[key]} tone="dark" />
+                </InfoItem>
+              ))}
+          </ul>
+        </section>
+
+        {/* 경고 문구 — 작은 글씨로 숨기지 않도록 본문 크기로 표시 */}
+        {activeWarnings.length > 0 && (
+          <ul aria-label="경고 문구" className="mt-6 space-y-1.5 rounded-lg border border-white/15 px-5 py-4">
+            {activeWarnings.map((w) => (
+              <li key={w.id} className="flex gap-2 text-base font-semibold leading-relaxed text-white">
+                <TriangleAlert className="mt-1 h-4 w-4 shrink-0 text-gold-300" aria-hidden="true" />
+                {w.text}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
           <PolicyLink label="개인정보 처리방침" url={company.privacyPolicyUrl} placeholder={placeholders.privacyPolicyUrl} />
           <PolicyLink label="이용약관" url={company.termsUrl} placeholder={placeholders.termsUrl} />
         </div>
