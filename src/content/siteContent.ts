@@ -17,7 +17,7 @@ export const navItems: { id: string; label: string }[] = [
   { id: 'services', label: '서비스 안내' },
   { id: 'process', label: '컨설팅 프로세스' },
   ...(reviews.length > 0 ? [{ id: 'reviews', label: '고객 후기' }] : []),
-  { id: 'company', label: '회사 정보' },
+ 
 ];
 
 export const hero = {
