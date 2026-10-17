@@ -1,0 +1,51 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Apple SD Gothic Neo',
+    'Noto Sans KR', 'Malgun Gothic', sans-serif;
+
+  /* Navy — 기본 색상 */
+  --color-navy-950: #071427;
+  --color-navy-900: #0b1f3a;
+  --color-navy-800: #14305a;
+  --color-navy-700: #1e4170;
+  --color-navy-300: #8aa0bf;
+  --color-navy-200: #c3cdda;
+  --color-navy-100: #d7dee8;
+  --color-navy-50: #f2f5f9;
+
+  /* Gold — 보조 색상 (본문 크기 텍스트에는 700 이상 사용: 흰 배경 대비 4.5:1 이상) */
+  --color-gold-800: #6e5530;
+  --color-gold-700: #86683a;
+  --color-gold-500: #b08d57;
+  --color-gold-300: #c9a86a;
+  --color-gold-200: #e2cfa8;
+  --color-gold-50: #faf6ee;
+
+  /* Neutral */
+  --color-ink: #1b2333;
+  --color-muted: #545f72;
+  --color-line: #e3e8ef;
+  --color-surface: #f6f8fb;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-gold-500);
+    outline-offset: 2px;
+  }
+}
