@@ -34,8 +34,7 @@ export const reviews: Review[] = [
        date: '2026.09.14',
      }, 
    {
-       content: '간단하고 빠르게 진행할수 있어서 좋았습니다
-',
+       content: '간단하고 빠르게 진행할수 있어서 좋았습니다',
        author: '30대 직장인 송○○',
        date: '2026.09.14',
      },
