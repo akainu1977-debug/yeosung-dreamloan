@@ -13,7 +13,7 @@ export const navItems = [
   { id: 'about', label: '회사 소개' },
   { id: 'services', label: '서비스 안내' },
   { id: 'process', label: '컨설팅 프로세스' },
-  { id: 'faq', label: '자주 묻는 질문' },
+
   { id: 'company', label: '회사 정보' },
 ] as const;
 
