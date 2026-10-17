@@ -31,7 +31,7 @@ export const reviews: Review[] = [
      {
        content: '고객이 작성한 후기 내용',
        author: '30대 직장인 김○○',
-       date: '2026.8.22',
+       date: '2026.8.21',
      },
        {
        content: '고객이 작성한 후기 내용',
