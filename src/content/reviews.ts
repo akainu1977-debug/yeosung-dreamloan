@@ -29,10 +29,21 @@ export interface Review {
 
 export const reviews: Review[] = [
       {
-       content: '고객이 작성한 후기 내용',
-       author: '30대 직장인 김○○',
-       date: '2026.10',
-     }, // 여기에 후기를 추가하세요
+       content: '온라인으로 대출 잘 나와서 좋았어요',
+       author: '40대 직장인 정○○',
+       date: '2026.09.14',
+     }, 
+   {
+       content: '간단하고 빠르게 진행할수 있어서 좋았습니다
+',
+       author: '30대 직장인 송○○',
+       date: '2026.09.14',
+     },
+   {
+       content: '진심으로 감사합니다. 매번 거절이라 솔직히 기대 안했어요 ㅜㅜ',
+       author: '20대 무직 서○○',
+       date: '2026.09.14',
+     },// 여기에 후기를 추가하세요
 ];
 
 export const reviewsSection = {
