@@ -28,7 +28,11 @@ export interface Review {
 }
 
 export const reviews: Review[] = [
-  // 여기에 후기를 추가하세요
+      {
+       content: '고객이 작성한 후기 내용',
+       author: '30대 직장인 김○○',
+       date: '2026.10',
+     }, // 여기에 후기를 추가하세요
 ];
 
 export const reviewsSection = {
