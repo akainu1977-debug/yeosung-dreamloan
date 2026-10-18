@@ -19,12 +19,12 @@ export function Hero() {
           >
             {hero.title[0]}
             <br />
-            <span className="text-navy-700">저희는 모든</span><span className="text-gold-500">1금융<span className="text-navy-700">에서</span><span className="text-gold-500">최대1억,</span><span className="text-gold-500">금리3%<span className="text-navy-700">대로</span><span className="text-gold-500">100%</span><span className="text-navy-700">승인됩니다.</span>
+            <span className="text-navy-700">저희는 <span className="text-gold-500">1금융</span> 대출 방법을 함께 찾아드립니다</span>
           </h1>
           <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-ink sm:text-lg">{hero.lead}</p>
           <p className="mt-3 max-w-xl text-base leading-relaxed text-muted">{hero.sub}</p>
 
-            <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-3 border-t border-line pt-6" aria-label="주요 안내 분야">
+          <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-3 border-t border-line pt-6" aria-label="주요 안내 분야">
             {hero.topics.map((t) => (
               <li key={t} className="inline-flex items-center gap-2 text-[15px] font-medium text-ink">
                 <Check className="h-4 w-4 text-gold-700" aria-hidden="true" />
