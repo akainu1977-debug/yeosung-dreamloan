@@ -8,9 +8,9 @@ import { Container } from './ui';
  * 보상·지급·승인 보장 문구는 넣지 마세요.
  */
 const banner: { badge: string; title: string[]; text: string; tags: string[]; note: string } = {
-  badge: '부결 고객 재상담',
-  title: ['대출이 부결되셨나요?', '다시 상담받아 보세요'],
-  text: '다시 신청할 수 있도록 회사에서 함께 도와드립니다.',
+  badge: '대출 부결시 1000만원 지급',
+  title: ['대출이 부결되셨나요?', '대출 부결시 1000만원 지급해드립니다'],
+  text: '회사에 예치된 금액으로 부결시 1000만원 지급', '100% 승인으로 자신있습니다',
   tags: [],
   note: '대출 승인과 금리·한도는 금융기관 심사에 따라 결정됩니다.',
 };
