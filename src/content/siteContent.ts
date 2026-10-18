@@ -13,7 +13,6 @@ import { reviews } from './reviews';
 
 /** 상단·하단 메뉴. '고객 후기'는 후기가 1개 이상 입력된 경우에만 표시됩니다. */
 export const navItems: { id: string; label: string }[] = [
-
   { id: 'services', label: '서비스 안내' },
   { id: 'process', label: '진행 과정' },
   ...(reviews.length > 0 ? [{ id: 'reviews', label: '고객 후기' }] : []),
@@ -21,10 +20,10 @@ export const navItems: { id: string; label: string }[] = [
 
 export const hero = {
   eyebrow: '여성드림론 대출 컨설팅',
-  title: ['대출이 부결되셨나요?', '저희는 100% 승인 됩니다'],
-  lead: '저신용자, 무직자, 개인회생·파산면책 중이신 분도 모든 1금융 한도 1억 금리 3% 승인 대출승인 100% 가능합니다.',
-  sub: '',
-  topics: ['저신용자 승인', '무직자 승인', '개인회생·파산면책 승인', '대출 부결없이 승인 '],
+  title: ['대출이 거절되셨나요?', '다시 방법을 함께 찾아드립니다'],
+  lead: '저신용자, 무직자, 개인회생·파산면책 중이신 분도 상담받으실 수 있습니다.',
+  sub: '지금 내 상황에서 신청해 볼 수 있는 상품과 준비할 서류를 쉽게 알려드립니다.',
+  topics: ['저신용자 상담', '무직자 상담', '개인회생·파산면책 상담', '대출 부결 상담'],
 };
 
 export const about = {
@@ -55,32 +54,32 @@ export const about = {
 
 export const services = {
   eyebrow: 'Services',
-  title: '진행 절차',
-  intro: '',
+  title: '서비스 안내',
+  intro: '상황이 어려워도 먼저 상담해 보세요.',
   items: [
     {
       no: '01',
       icon: 'Landmark',
-      title: '부결사유 체크',
-      body: '필요한 서류 보완',
-      points: ['부결사유와 서류 체크'],
-      tag: '1금융 부결',
+      title: '은행 대출 알아보기',
+      body: '어떤 은행 상품이 있는지, 조건이 무엇인지 쉽게 설명해 드립니다.',
+      points: ['상품 종류와 신청 조건', '금리와 갚는 방법', '신청 전 확인할 것'],
+      tag: '1금융 상품',
     },
     {
       no: '02',
       icon: 'UserRound',
       title: '내 상황 점검하기',
-      body: '[계좌 지급정지 및 압류', '통신사 미납', '모든 부결 사유 해결'],
+      body: '신용, 소득, 회생·면책 이력에 맞춰 가능한 방법을 찾아봅니다.',
       points: ['저신용자', '무직자·프리랜서', '개인회생·파산면책 중인 분'],
       tag: '맞춤 상담',
     },
     {
       no: '03',
       icon: 'ClipboardCheck',
-      title: '1금융 한도 1억 금리 3% 승인',
-      body: '100% 승인해드리고 있습니다.',
-      points: ['부결 원인 확인', '필요한 서류 제출'],
-      tag: '1금융 승인',
+      title: '거절 이유 확인하기',
+      body: '왜 부결됐는지 살펴보고, 다음에 준비할 것을 알려드립니다.',
+      points: ['부결 원인 확인', '필요한 서류 정리', '다시 신청하기 전 준비할 것'],
+      tag: '부결 상담',
     },
   ],
   notes: ['대출 승인과 금리·한도는 금융기관 심사에 따라 결정됩니다.'],
