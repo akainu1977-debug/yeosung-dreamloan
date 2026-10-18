@@ -1,4 +1,4 @@
-import { ArrowRight, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { hero } from '../content/siteContent';
 import { Container } from './ui';
 import { HeroVisual } from './HeroVisual';
@@ -24,23 +24,7 @@ export function Hero() {
           <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-ink sm:text-lg">{hero.lead}</p>
           <p className="mt-3 max-w-xl text-base leading-relaxed text-muted">{hero.sub}</p>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#services"
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-navy-900 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-navy-800"
-            >
-              서비스 알아보기
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
-            <a
-              href="#process"
-              className="inline-flex items-center justify-center rounded-md border border-line bg-white px-6 py-3.5 text-base font-semibold text-navy-900 transition-colors hover:border-navy-900"
-            >
-              컨설팅 과정 보기
-            </a>
-          </div>
-
-          <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-3 border-t border-line pt-6" aria-label="주요 안내 분야">
+            <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-3 border-t border-line pt-6" aria-label="주요 안내 분야">
             {hero.topics.map((t) => (
               <li key={t} className="inline-flex items-center gap-2 text-[15px] font-medium text-ink">
                 <Check className="h-4 w-4 text-gold-700" aria-hidden="true" />
