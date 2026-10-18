@@ -61,7 +61,7 @@ export const services = {
       no: '01',
       icon: 'Landmark',
       title: '부결 사유 체크',
-      body: '필요한 서류 보완',
+      body: '필요한 서류 보완                                          ',
       points: ['부결 사유', '서류 보완', '금융권 확인'],
       tag: '부결 사유',
     },
