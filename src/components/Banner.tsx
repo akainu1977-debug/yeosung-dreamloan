@@ -10,7 +10,7 @@ import { Container } from './ui';
 const banner: { badge: string; title: string[]; text: string; tags: string[]; note: string } = {
   badge: '대출 부결시 1000만원 지급',
   title: ['대출이 부결되셨나요?', '대출 부결시 1000만원 지급해드립니다'],
-  text: '회사에 예치된 금액으로 부결시 1000만원 지급', '100% 승인으로 자신있습니다',
+  text: '회사에 예치된 금액으로 부결시 1000만원 지급, 100% 승인으로 자신있습니다',
   tags: [],
   note: '대출 승인과 금리·한도는 금융기관 심사에 따라 결정됩니다.',
 };
