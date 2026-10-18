@@ -20,10 +20,10 @@ export const navItems: { id: string; label: string }[] = [
 
 export const hero = {
   eyebrow: '여성드림론 대출 컨설팅',
-  title: ['대출이 거절되셨나요?', '다시 방법을 함께 찾아드립니다'],
-  lead: '저신용자, 무직자, 개인회생·파산면책 중이신 분도 상담받으실 수 있습니다.',
-  sub: '지금 내 상황에서 신청해 볼 수 있는 상품과 준비할 서류를 쉽게 알려드립니다.',
-  topics: ['저신용자 상담', '무직자 상담', '개인회생·파산면책 상담', '대출 부결 상담'],
+  title: ['대출이 부결되셨나요?', '저희는 100% 승인됩니다'],
+  lead: '저신용자, 무직자, 개인회생·파산면책 중이신 분도 모든 1금융 대출승인 100% 가능합니다.',
+  sub: '',
+  topics: ['저신용자 승인', '무직자 승인', '개인회생·파산면책 승인', '대출 부결없이 승인'],
 };
 
 export const about = {
@@ -54,8 +54,8 @@ export const about = {
 
 export const services = {
   eyebrow: 'Services',
-  title: '서비스 안내',
-  intro: '상황이 어려워도 먼저 상담해 보세요.',
+  title: '진행 절차',
+  intro: '',
   items: [
     {
       no: '01',
