@@ -77,7 +77,7 @@ export const services = {
       no: '03',
       icon: 'ClipboardCheck',
       title: '1금융 승인',
-      body: '1금융 한도 1억, 금리 3%대로 100% 승인해 드리고 있습니다'
+      body: '1금융 한도 1억, 금리 3%대로 100% 승인해 드리고 있습니다',
       points: ['1금융', '최대한도 1억', '금리 3%'],
       tag: '승인 100%',
     },
