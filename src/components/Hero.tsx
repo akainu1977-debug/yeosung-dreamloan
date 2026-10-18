@@ -15,11 +15,11 @@ export function Hero() {
           </p>
           <h1
             id="hero-title"
-            className="mt-5 text-[1.4rem] font-bold leading-[1.3] tracking-tight text-navy-900 sm:text-2xl sm:leading-[1.25] lg:text-[1.8rem] xl:text-[2rem]"
+            className="mt-5 text-[1.6rem] font-bold leading-[1.3] tracking-tight text-navy-900 sm:text-3xl sm:leading-[1.25] lg:text-[2.1rem] xl:text-[2.35rem]"
           >
             {hero.title[0]}
             <br />
-            <span className="text-navy-700"> 저희는 모든 <span className="text-gold-500"> 1금융 </span> 에서 <span className="text-gold-500"> 최대 1억, 금리 3%</span> 대로 <span className="text-gold-500"> 100% </span> 승인됩니다. </span>
+            <span className="text-navy-700"> 모든 <span className="text-gold-500"> 1금융 </span> 에서 <span className="text-gold-500"> 최대 1억, 금리 3%</span> 대로 <span className="text-gold-500"> 100% </span> 승인됩니다. </span>
           </h1>
           <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-ink sm:text-lg">{hero.lead}</p>
           <p className="mt-3 max-w-xl text-base leading-relaxed text-muted">{hero.sub}</p>
