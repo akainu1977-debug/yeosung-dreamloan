@@ -15,7 +15,7 @@ export function Hero() {
           </p>
           <h1
             id="hero-title"
-            className="mt-5 text-[2.1rem] font-bold leading-[1.25] tracking-tight text-navy-900 sm:text-5xl sm:leading-[1.2] lg:text-[2.85rem] xl:text-[3.2rem]"
+            className="mt-5 text-[1.85rem] font-bold leading-[1.25] tracking-tight text-navy-900 sm:text-4xl sm:leading-[1.2] lg:text-[2.5rem] xl:text-[2.8rem]"
           >
             {hero.title[0]}
             <br />
