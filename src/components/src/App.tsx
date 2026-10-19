@@ -4,7 +4,6 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Services } from './components/Services';
-import { Process } from './components/Process';
 import { Principles } from './components/Principles';
 import { Faq } from './components/Faq';
 import { CompanyInfo } from './components/CompanyInfo';
@@ -53,7 +52,6 @@ export default function App() {
         <Hero />
         <About />
         <Services />
-        <Process />
         <Principles />
         <Faq />
         <CompanyInfo />

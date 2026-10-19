@@ -9,13 +9,8 @@
  * - '승인', '최저금리', '○천만원 한도' 등 결과를 보장하는 것처럼 보이는 문장은 빼고 입력하세요.
  * - 후기 작성 대가(할인·사례금 등)를 제공했다면 그 사실을 후기에 함께 밝혀야 할 수 있습니다.
  *
- * 입력 예시 (아래 대괄호 [ ] 안에 이 형식으로 추가):
- *
- *   {
- *     content: '고객이 작성한 후기 내용을 그대로 입력합니다.',
- *     author: '30대 직장인 김○○',
- *     date: '2026.10',
- *   },
+ * 사진 넣기: public/reviews 폴더에 사진을 넣고 image: '/reviews/파일이름' 줄을 추가하세요.
+ * 사진이 없는 후기는 image 줄을 빼면 됩니다.
  */
 
 export interface Review {
@@ -25,24 +20,30 @@ export interface Review {
   author: string;
   /** 작성 시기 (선택) — 예: '2026.10' */
   date?: string;
+  /** 후기 사진 (선택) — public/reviews 폴더에 올린 파일 이름. 예: '/reviews/review1.jpg' */
+  image?: string;
 }
 
 export const reviews: Review[] = [
-      {
-       content: '온라인으로 대출 잘 나와서 좋았어요',
-       author: '40대 직장인 정○○',
-       date: '2026.09.14',
-     }, 
-   {
-       content: '간단하고 빠르게 진행할수 있어서 좋았습니다',
-       author: '30대 직장인 송○○',
-       date: '2026.09.27',
-     },
-   {
-       content: '진심으로 감사합니다. 매번 거절이라 솔직히 기대 안했어요 ㅜㅜ',
-       author: '20대 무직 서○○',
-       date: '2026.10.13',
-     },// 여기에 후기를 추가하세요
+  {
+    content: '온라인으로 대출 잘 나와서 좋았어요',
+    author: '40대 프리랜서 정○○',
+    date: '2026.10.16',
+    image: '/reviews/review1.jpg',
+  },
+  {
+    content: '간단하고 빠르게 진행할수 있어서 좋았습니다',
+    author: '30대 프리랜서 송○○',
+    date: '2026.09.29',
+    image: '/reviews/review2.jpg',
+    
+  },
+  {
+    content: '진심으로 감사합니다. 매번 거절이라 솔직히 기대 안했어요 ㅜㅜ',
+    author: '30대 프리랜서 서○○',
+    date: '2026.09.29',
+    image: '/reviews/review3.jpg',
+  },
 ];
 
 export const reviewsSection = {

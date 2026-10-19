@@ -14,7 +14,6 @@ import { reviews } from './reviews';
 /** 상단·하단 메뉴. '고객 후기'는 후기가 1개 이상 입력된 경우에만 표시됩니다. */
 export const navItems: { id: string; label: string }[] = [
   { id: 'services', label: '서비스 안내' },
-  { id: 'process', label: '진행 과정' },
   ...(reviews.length > 0 ? [{ id: 'reviews', label: '고객 후기' }] : []),
 ];
 

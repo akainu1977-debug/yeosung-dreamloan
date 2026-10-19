@@ -3,7 +3,6 @@ import { navItems } from './content/siteContent';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Services } from './components/Services';
-import { Process } from './components/Process';
 import { Principles } from './components/Principles';
 import { Reviews } from './components/Reviews';
 import { Banner } from './components/Banner';
@@ -51,7 +50,6 @@ export default function App() {
       <main id="main">
         <Hero />
         <Services />
-        <Process />
         <Banner />
         <Reviews />
         <Principles />
