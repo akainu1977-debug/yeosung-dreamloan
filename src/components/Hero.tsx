@@ -19,7 +19,7 @@ export function Hero() {
           >
             {hero.title[0]}
             <br />
-            <span className="text-navy-700"> 모든 <span className="text-amber-600"> 1금융 </span> 에서 <span className="text-amber-600"> 최대 1억, 금리 3%</span> 대로 <span className="text-amber-600"> 100% </span> 승인됩니다. </span>
+            <span className="text-navy-700"> 모든 <span className="text-amber-600"> 1금융 </span> 에서 <span className="text-amber-600"> 최대 1억,<br/> 금리 3%</span> 대로 <span className="text-amber-600"> 100% </span> 승인됩니다. </span>
           </h1>
           <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-ink sm:text-lg">{hero.lead}</p>
           <p className="mt-3 max-w-xl text-base leading-relaxed text-muted">{hero.sub}</p>
