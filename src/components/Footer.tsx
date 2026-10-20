@@ -1,51 +1,68 @@
-import type { ReactNode } from 'react';
 import { TriangleAlert } from 'lucide-react';
-import { company, placeholders, toTelHref, type CompanyInfo } from '../config/company';
-import { generalDisclaimers, lendingTermPlaceholders, lendingTerms, warningNotices } from '../config/legal';
+import { company, toTelHref } from '../config/company';
+import { generalDisclaimers, lendingTerms, warningNotices } from '../config/legal';
 import { navItems } from '../content/siteContent';
 import { Logo } from './Logo';
-import { Container, Placeholder, ValueOrPlaceholder } from './ui';
+import { Container, Placeholder } from './ui';
 
-type Field = Exclude<keyof CompanyInfo, 'name'>;
+/* ================================================================
+ * 푸터에 보여줄 항목 목록
+ * ----------------------------------------------------------------
+ * - 빼고 싶은 항목은 그 줄을 통째로 지우면 됩니다. (오류 나지 않음)
+ * - 값은 src/config/company.ts, src/config/legal.ts 에서 입력합니다.
+ * - 값이 null 이면 [OO 입력] 점선 칸으로 보입니다.
+ * ================================================================ */
 
-/** 푸터에 표시할 회사·등록 정보 (값이 없으면 자리표시자) */
-const infoFields: { label: string; field: Field }[] = [
-  { label: '대표자', field: 'ceo' },
-  { label: '사업자등록번호', field: 'businessRegistrationNumber' },
-  { label: '주소', field: 'address' },
+/** 회사 정보 */
+const infoItems: { label: string; value: string | null; placeholder: string }[] = [
+  { label: '대표자', value: company.ceo, placeholder: '대표자명 입력' },
+  { label: '사업자등록번호', value: company.businessRegistrationNumber, placeholder: '사업자등록번호 입력' },
+  
+  { label: '주소', value: company.address, placeholder: '사업장 주소 입력' },
+  { label: '개인정보 보호책임자', value: company.privacyOfficer, placeholder: '해당 시 입력' },
+  
 ];
 
-const lendingLabels: Record<keyof typeof lendingTermPlaceholders, string> = {
+/** 이자율 항목 — legal.ts 에서 enabled: false 로 바꾸면 전부 숨겨집니다 */
+const lendingItems: { label: string; value: string | null; placeholder: string }[] = [
+  
+];
 
-};
+/** 정책 링크 — 주소(URL)를 입력한 것만 보입니다 */
+const policyLinks: { label: string; url: string | null }[] = [
+  { label: '개인정보 처리방침', url: company.privacyPolicyUrl },
+  { label: '이용약관', url: company.termsUrl },
+];
 
-function InfoItem({ label, children }: { label: string; children: ReactNode }) {
+/* ================================================================ */
+
+function Item({ label, value, placeholder }: { label: string; value: string | null; placeholder: string }) {
+  const tel = label === '대표전화' ? toTelHref(value) : null;
   return (
     <li>
-      <span className="text-navy-300">{label}</span> <span className="text-navy-100">{children}</span>
-    </li>
-  );
-}
-
-function PolicyLink({ label, url, placeholder }: { label: string; url: string | null; placeholder: string }) {
-  if (!url) {
-    return (
+      <span className="text-navy-300">{label}</span>{' '}
       <span className="text-navy-100">
-        {label} <Placeholder label={placeholder} tone="dark" />
+        {value ? (
+          tel ? (
+            <a href={tel} className="font-semibold text-white hover:underline">
+              {value}
+            </a>
+          ) : (
+            value
+          )
+        ) : (
+          <Placeholder label={placeholder} tone="dark" />
+        )}
       </span>
-    );
-  }
-  return (
-    <a href={url} className="font-semibold text-white underline-offset-4 hover:underline">
-      {label}
-    </a>
+    </li>
   );
 }
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const telHref = toTelHref(company.phone);
+  const items = lendingTerms.enabled ? [...infoItems, ...lendingItems] : infoItems;
   const activeWarnings = warningNotices.filter((w) => w.enabled);
+  const activePolicies = policyLinks.filter((p) => p.url);
 
   return (
     <footer className="bg-navy-950 text-navy-100">
@@ -73,19 +90,13 @@ export function Footer() {
         {/* 회사·등록 정보 */}
         <section aria-label="회사 정보" className="mt-10 border-t border-white/10 pt-8">
           <p className="text-base font-semibold text-white">{company.name}</p>
-          <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-[15px] leading-relaxed">
-            {infoFields.map((f) => (
-              <InfoItem key={f.field} label={f.label}>
-                <ValueOrPlaceholder value={company[f.field]} placeholder={placeholders[f.field]} tone="dark" />
-              </InfoItem>
-            ))}
-            {lendingTerms.enabled &&
-              (Object.keys(lendingLabels) as (keyof typeof lendingLabels)[]).map((key) => (
-                <InfoItem key={key} label={lendingLabels[key]}>
-                  <ValueOrPlaceholder value={lendingTerms[key]} placeholder={lendingTermPlaceholders[key]} tone="dark" />
-                </InfoItem>
+          {items.length > 0 && (
+            <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-[15px] leading-relaxed">
+              {items.map((it) => (
+                <Item key={it.label} {...it} />
               ))}
-          </ul>
+            </ul>
+          )}
         </section>
 
         {/* 경고 문구 — 작은 글씨로 숨기지 않도록 본문 크기로 표시 */}
@@ -100,8 +111,15 @@ export function Footer() {
           </ul>
         )}
 
-        <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
-        </div>
+        {activePolicies.length > 0 && (
+          <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
+            {activePolicies.map((p) => (
+              <a key={p.label} href={p.url as string} className="font-semibold text-white underline-offset-4 hover:underline">
+                {p.label}
+              </a>
+            ))}
+          </div>
+        )}
 
         <ul className="mt-6 space-y-2 text-[15px] leading-relaxed text-navy-100">
           {generalDisclaimers.map((d) => (
