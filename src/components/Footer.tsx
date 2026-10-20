@@ -15,11 +15,11 @@ import { Container, Placeholder } from './ui';
 
 /** 회사 정보 */
 const infoItems: { label: string; value: string | null; placeholder: string }[] = [
-  { label: '대표자', value: company.ceo, placeholder: '대표자명 입력' },
+ 
   { label: '사업자등록번호', value: company.businessRegistrationNumber, placeholder: '사업자등록번호 입력' },
   
   { label: '주소', value: company.address, placeholder: '사업장 주소 입력' },
-  { label: '개인정보 보호책임자', value: company.privacyOfficer, placeholder: '해당 시 입력' },
+  { label: '문의 메일', value: company.privacyOfficer, placeholder: '해당 시 입력' },
   
 ];
 

@@ -50,7 +50,7 @@ export const company: CompanyInfo = {
   address: '서울 강남구 테헤란로 328 동우빌딩12층',
   phone: null,
   phoneHours: null,
-  privacyOfficer: '조세리',
+  privacyOfficer: 'loandream@gmail.com',
   privacyPolicyUrl: null,
   termsUrl: null,
 };
