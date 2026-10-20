@@ -42,15 +42,15 @@ export interface CompanyInfo {
 
 export const company: CompanyInfo = {
   name: '여성드림론',
-  ceo: null,
-  businessRegistrationNumber: null,
+  ceo: '조세리',
+  businessRegistrationNumber: '719-25-02575',
   lendingRegistrationNumber: null,
   brokerageRegistrationNumber: null,
   registrationAuthority: null,
-  address: null,
+  address: '서울 강남구 테헤란로 328 동우빌딩12층',
   phone: null,
   phoneHours: null,
-  privacyOfficer: null,
+  privacyOfficer: '조세리',
   privacyPolicyUrl: null,
   termsUrl: null,
 };

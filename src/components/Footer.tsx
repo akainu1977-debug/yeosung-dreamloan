@@ -12,18 +12,11 @@ type Field = Exclude<keyof CompanyInfo, 'name'>;
 const infoFields: { label: string; field: Field }[] = [
   { label: '대표자', field: 'ceo' },
   { label: '사업자등록번호', field: 'businessRegistrationNumber' },
-  { label: '대부업 등록번호', field: 'lendingRegistrationNumber' },
-  { label: '대부중개업 등록번호', field: 'brokerageRegistrationNumber' },
-  { label: '등록기관', field: 'registrationAuthority' },
   { label: '주소', field: 'address' },
-  { label: '개인정보 보호책임자', field: 'privacyOfficer' },
 ];
 
 const lendingLabels: Record<keyof typeof lendingTermPlaceholders, string> = {
-  interestRate: '대부이자율',
-  overdueInterestRate: '연체이자율',
-  additionalCosts: '이자 외 추가비용',
-  earlyRepaymentTerms: '조기상환 조건',
+
 };
 
 function InfoItem({ label, children }: { label: string; children: ReactNode }) {
@@ -86,15 +79,6 @@ export function Footer() {
                 <ValueOrPlaceholder value={company[f.field]} placeholder={placeholders[f.field]} tone="dark" />
               </InfoItem>
             ))}
-            <InfoItem label="대표전화">
-              {telHref ? (
-                <a href={telHref} className="font-semibold text-white hover:underline">
-                  {company.phone}
-                </a>
-              ) : (
-                <Placeholder label={placeholders.phone} tone="dark" />
-              )}
-            </InfoItem>
             {lendingTerms.enabled &&
               (Object.keys(lendingLabels) as (keyof typeof lendingLabels)[]).map((key) => (
                 <InfoItem key={key} label={lendingLabels[key]}>
@@ -117,8 +101,6 @@ export function Footer() {
         )}
 
         <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
-          <PolicyLink label="개인정보 처리방침" url={company.privacyPolicyUrl} placeholder={placeholders.privacyPolicyUrl} />
-          <PolicyLink label="이용약관" url={company.termsUrl} placeholder={placeholders.termsUrl} />
         </div>
 
         <ul className="mt-6 space-y-2 text-[15px] leading-relaxed text-navy-100">
